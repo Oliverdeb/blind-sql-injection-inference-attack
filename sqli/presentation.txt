@@ -1,0 +1,7 @@
+First used sleep based
+Reduced search space based on which characters are actually used
+Then used response body
+Then multi threaded
+
+Sleep is sequential
+Not as accurate
